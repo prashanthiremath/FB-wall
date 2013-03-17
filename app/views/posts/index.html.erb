@@ -1,0 +1,42 @@
+<h1>Update status</h1>
+ 
+<%= form_for(@post, :remote => true) do |f| %>
+  <% if @post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+      
+      <ul>
+      <% @post.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%=f.text_area :body, :cols => 100, :rows => 3 %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+ <%= link_to image_tag('/assets/subscribe.gif')%>
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+<div id='show_posts'>
+<%if @posts %>
+
+<% @posts.each do |post| %>
+   <tr>
+    <td><%= post.body %></td>
+
+  </tr>
+<% end %>
+<% end %>
+ </div>
+</table>
+
+<br />
+
+<%= link_to 'New Post', new_post_path %>

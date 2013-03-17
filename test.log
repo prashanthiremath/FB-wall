@@ -1,0 +1,31 @@
+           subscriptions GET    /subscriptions(.:format)          subscriptions#index
+                         POST   /subscriptions(.:format)          subscriptions#create
+        new_subscription GET    /subscriptions/new(.:format)      subscriptions#new
+       edit_subscription GET    /subscriptions/:id/edit(.:format) subscriptions#edit
+            subscription GET    /subscriptions/:id(.:format)      subscriptions#show
+                         PUT    /subscriptions/:id(.:format)      subscriptions#update
+                         DELETE /subscriptions/:id(.:format)      subscriptions#destroy
+                   posts GET    /posts(.:format)                  posts#index
+                         POST   /posts(.:format)                  posts#create
+                new_post GET    /posts/new(.:format)              posts#new
+               edit_post GET    /posts/:id/edit(.:format)         posts#edit
+                    post GET    /posts/:id(.:format)              posts#show
+                         PUT    /posts/:id(.:format)              posts#update
+                         DELETE /posts/:id(.:format)              posts#destroy
+        new_user_session GET    /users/sign_in(.:format)          devise/sessions#new
+            user_session POST   /users/sign_in(.:format)          devise/sessions#create
+    destroy_user_session DELETE /users/sign_out(.:format)         devise/sessions#destroy
+           user_password POST   /users/password(.:format)         devise/passwords#create
+       new_user_password GET    /users/password/new(.:format)     devise/passwords#new
+      edit_user_password GET    /users/password/edit(.:format)    devise/passwords#edit
+                         PUT    /users/password(.:format)         devise/passwords#update
+cancel_user_registration GET    /users/cancel(.:format)           devise/registrations#cancel
+       user_registration POST   /users(.:format)                  devise/registrations#create
+   new_user_registration GET    /users/sign_up(.:format)          devise/registrations#new
+  edit_user_registration GET    /users/edit(.:format)             devise/registrations#edit
+                         PUT    /users(.:format)                  devise/registrations#update
+                         DELETE /users(.:format)                  devise/registrations#destroy
+          subscribe_user GET    /users/:id/subscribe(.:format)    users#subscribe
+                   users GET    /users(.:format)                  users#index
+                    user GET    /users/:id(.:format)              users#show
+                    root        /                                 posts#index
