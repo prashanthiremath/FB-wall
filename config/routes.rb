@@ -1,5 +1,5 @@
 FbApp::Application.routes.draw do
-  resources :subscriptions 
+
 
 
   resources :posts

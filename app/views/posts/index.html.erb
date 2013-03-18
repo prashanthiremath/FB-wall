@@ -1,4 +1,4 @@
-<h1>Update status</h1>
+<h1>Update status</h1>   <%= link_to image_tag('/assets/subscribe.gif'),  subscribe_user_url(current_user), :remote => true %>
  
 <%= form_for(@post, :remote => true) do |f| %>
   <% if @post.errors.any? %>
@@ -14,10 +14,10 @@
   <% end %>
   <%=f.text_area :body, :cols => 100, :rows => 3 %>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Post status', :class => 'post_status' %>
   </div>
 <% end %>
- <%= link_to image_tag('/assets/subscribe.gif')%>
+
 <table>
   <tr>
     <th></th>
@@ -40,3 +40,13 @@
 <br />
 
 <%= link_to 'New Post', new_post_path %>
+
+
+<script>
+$(document).ready(function() {
+  $(".post_status").click(function(){
+     $("#new_post").submit();
+  })
+});
+
+</script>

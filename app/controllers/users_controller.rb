@@ -24,7 +24,7 @@ class UsersController < ApplicationController
   def subscribe
     if current_user
      user = current_user
-     user.status = true
+     user.is_subscribe = true
      user.save
    end 
   end

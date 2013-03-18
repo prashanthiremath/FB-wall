@@ -89,10 +89,10 @@ class PostsController < ApplicationController
    def get_posts
     posts = Array.new
     if current_user
-      posts = current_user.posts(:order=>"created_at ASC")
+      posts = current_user.posts.all(:order => 'created_at DESC')
      if current_user.is_subscribe?
        friends_ids = current_user.friends.collect{|c| c.id}
-       friends_posts = Post.find(:all, :conditions => ["user_id (?)", friends_ids], :order => 'desc created_at')
+       friends_posts = Post.find(:all, :conditions => ["user_id in (?)", friends_ids], :order => "created_at ASC")
        posts = posts | friends_posts
      end
     end
